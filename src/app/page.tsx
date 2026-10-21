@@ -1,3 +1,4 @@
+import ProductForm from "@/components/ProductForm";
 import { Button } from "@/components/ui/button"
 import {
   HoverCard,
@@ -6,7 +7,8 @@ import {
 } from "@/components/ui/hover-card"
 export default function Home() {
   return (
-    <HoverCard>
+    <div>
+      <HoverCard>
       <HoverCardTrigger delay={10} closeDelay={100} render={<Button variant="link">Welcome Here</Button>} />
       <HoverCardContent className="flex w-64 flex-col gap-0.5">
         <div className="font-semibold">Welcome...</div>
@@ -16,5 +18,7 @@ export default function Home() {
         </div>
       </HoverCardContent>
     </HoverCard>
+    <ProductForm />
+    </div>
   );
 }
