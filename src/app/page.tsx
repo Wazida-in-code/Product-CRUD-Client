@@ -1,13 +1,18 @@
 import ProductForm from "@/components/ProductForm";
+import Products from "@/components/Products";
 import { Button } from "@/components/ui/button"
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
-export default function Home() {
+
+export default async function Home() {
+  const res = await fetch('http://localhost:8000/products');
+  const products = await res.json();
+  // console.log(products);
   return (
-    <div>
+    <div className="bg-black">
       <HoverCard>
       <HoverCardTrigger delay={10} closeDelay={100} render={<Button variant="link">Welcome Here</Button>} />
       <HoverCardContent className="flex w-64 flex-col gap-0.5">
@@ -19,6 +24,7 @@ export default function Home() {
       </HoverCardContent>
     </HoverCard>
     <ProductForm />
+    <Products products={products} />
     </div>
   );
 }
