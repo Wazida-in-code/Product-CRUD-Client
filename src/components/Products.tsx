@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import EditDialogCard from "./EditDialogCard";
 
 interface ProductType {
   _id: string;
@@ -18,7 +19,7 @@ interface ProductType {
 }
 
 const Products = ({ products }: { products: ProductType[] }) => {
-  console.log(products);
+ 
   return (
     <div className="grid grid-cols-3 gap-5 px-5 my-5">
       {products.map((product) => (
@@ -37,6 +38,7 @@ const Products = ({ products }: { products: ProductType[] }) => {
             <div className="flex gap-3">
               <Button className="w-full">{product.price}</Button>
               <Link href={`/product/${product._id}`}><Button>Details</Button></Link>
+              <EditDialogCard product={product} />
             </div>
           </CardFooter>
         </Card>

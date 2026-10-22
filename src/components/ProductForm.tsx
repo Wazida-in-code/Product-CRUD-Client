@@ -19,7 +19,7 @@ const ProductForm = () => {
         body: JSON.stringify(data)
     });
     const result = await res.json();
-    console.log(result);
+    
   };
   return (
     <div className="mt-30">

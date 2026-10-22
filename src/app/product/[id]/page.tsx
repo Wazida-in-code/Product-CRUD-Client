@@ -5,7 +5,7 @@ const ProductDetailsPage = async ({ params }: {params:{ id: string }}) => {
   const { id } = await params;
   const res = await fetch(`http://localhost:8000/products/${id}`);
   const data = await res.json();
-  console.log(data);
+ 
   return (
     <div>
       <div className="max-w-sm mx-auto mt-10 rounded-xl border p-5 shadow-md">
