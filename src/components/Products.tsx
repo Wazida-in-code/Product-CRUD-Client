@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import EditDialogCard from "./EditDialogCard";
+import DeleteProduct from "./DeleteProduct";
 
 interface ProductType {
   _id: string;
@@ -38,9 +39,12 @@ const Products = ({ products }: { products: ProductType[] }) => {
             <div className="flex gap-3">
               <Button className="w-full">{product.price}</Button>
               <Link href={`/product/${product._id}`}><Button>Details</Button></Link>
-              <EditDialogCard product={product} />
             </div>
           </CardFooter>
+          <div className="flex justify-between">
+            <EditDialogCard product={product} />
+            <DeleteProduct id={product._id} />
+          </div>
         </Card>
       ))}
     </div>
